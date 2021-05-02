@@ -17,9 +17,19 @@ An implementation to the paper: Text Level Graph Neural Network for Text Classif
 |             +---glove.6B.200d.txt
 |             +---glove.6B.300d.txt
 +---train.py
-+---r8-test-all-terms.csv
-+---r8-train-all-terms.csv
++---r52-test-all-terms.txt
++---r52-train-all-terms.txt
++---r8-test-all-terms.txt
++---r8-train-all-terms.txt
 ```
+
+Since the original link DOES NOT work anymore, I hereby provide the original link and the corresponding dataset file in this repository for anyone who is also looking for the r8 and r52 dataset.
+
+https://www.cs.umb.edu/~smimarog/textmining/datasets/r8-train-all-terms.txt => r8-train-all-terms.txt
+https://www.cs.umb.edu/~smimarog/textmining/datasets/r8-test-all-terms.txt => r8-test-all-terms.txt
+https://www.cs.umb.edu/~smimarog/textmining/datasets/r52-train-all-terms.txt => r52-train-all-terms.txt
+https://www.cs.umb.edu/~smimarog/textmining/datasets/r52-test-all-terms.txt => 
+r52-test-all-terms.txt
 
 ## Environment:
 - Python 3.7.4

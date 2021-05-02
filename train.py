@@ -89,8 +89,8 @@ class TextLevelGNNDatasetClass: # This class is used to achieve parameters shari
         self.min_freq = min_freq
         self.train_validation_split = train_validation_split
 
-        self.train_data = pd.read_csv(self.train_filename, header=None)
-        self.test_data = pd.read_csv(self.test_filename, header=None)
+        self.train_data = pd.read_csv(self.train_filename, sep='\t', header=None)
+        self.test_data = pd.read_csv(self.test_filename, sep='\t', header=None)
 
         self.stoi = {'<unk>': 0, '<pad>': 1} # Re-index
         self.itos = {0: '<unk>', 1: '<pad>'} # Re-index
@@ -314,17 +314,9 @@ parser.add_argument("--epoch", default=300, type=int, required=False,
                     help='Number of epochs to train')
 args = parser.parse_args()
 
-### Fetch data (Run this part to download data for the first time)
-# train_url = 'https://www.cs.umb.edu/~smimarog/textmining/datasets/r8-train-all-terms.txt'
-# test_url = 'https://www.cs.umb.edu/~smimarog/textmining/datasets/r8-test-all-terms.txt'
-
-# pd.read_csv(train_url, sep='\t').to_csv('r8-train-all-terms.csv', index=False)
-# pd.read_csv(test_url, sep='\t').to_csv('r8-test-all-terms.csv', index=False)
-###
-
 tokenizer = GloveTokenizer(f'embeddings/glove.6B.{args.embedding_size}d.txt')
-dataset = TextLevelGNNDatasetClass(train_filename='r8-train-all-terms.csv',
-                                   test_filename='r8-test-all-terms.csv',
+dataset = TextLevelGNNDatasetClass(train_filename='r8-train-all-terms.txt',
+                                   test_filename='r8-test-all-terms.txt',
                                    train_validation_split=0.8,
                                    tokenizer=tokenizer,
                                    p=args.p,
